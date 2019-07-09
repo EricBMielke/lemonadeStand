@@ -8,11 +8,11 @@ namespace lemonadeStand
 {
     class Lemon
     {
-        public static bool CheckEmpty(double totalLemonade)
+        public static bool CheckEmpty(double totalLemonade, int i)
         {
-            if (totalLemonade == 0)
+            if (totalLemonade <= 0)
             {
-                Console.WriteLine("Sold out for the day");
+                Console.WriteLine("Sold out for the day after the " + i + " customer");
                 return true;
             }
             else

@@ -8,14 +8,13 @@ namespace lemonadeStand
 {
     class Inventory
     {
-        public static double InventoryTotalStatement(double totalSugar, double totalCups, double totalIce, double totalLemons)
+        public static void InventoryTotalStatement(double totalSugar, double totalCups, double totalIce, double totalLemons)
         {
             Console.WriteLine("Inventory totals:");
             Console.WriteLine("Sugar:" + totalSugar);
             Console.WriteLine("Cups:" + totalCups);
             Console.WriteLine("Ice:" + totalIce);
             Console.WriteLine("Lemons:" + totalLemons);
-            return 0;
         }
     }
 }

@@ -54,7 +54,7 @@ namespace lemonadeStand
         public static double TotalSugar(double totalSugar, double sugarNeededInt)
         {
             totalSugar = totalSugar + sugarNeededInt;
-            Console.WriteLine("Your total number of ice is " + totalSugar);
+            Console.WriteLine("Your total number of sugar is " + totalSugar);
             return totalSugar;
         }
 

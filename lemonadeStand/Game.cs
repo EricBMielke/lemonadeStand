@@ -30,16 +30,16 @@ namespace lemonadeStand
                 int patronNumbers = Day.patronsByDay(weatherType);
                 double lemonsNeededInt = UserInterface.LemonsWanted(player1);
                 totalMoney = Store.PurchaseLemons(lemonsNeededInt, totalMoney);
-                UserInterface.TotalLemons(totalLemons, lemonsNeededInt);
+                totalLemons = UserInterface.TotalLemons(totalLemons, lemonsNeededInt);
                 double cupsNeededInt = UserInterface.CupsWanted(player1);
                 totalMoney = Store.PurchaseCups(cupsNeededInt, totalMoney);
-                UserInterface.TotalLemons(totalCups, cupsNeededInt);
+                totalCups = UserInterface.TotalCups(totalCups, cupsNeededInt);
                 double iceNeededInt = UserInterface.IceWanted(player1);
                 totalMoney = Store.PurchaseIce(iceNeededInt, totalMoney);
-                UserInterface.TotalIce(totalIce, iceNeededInt);
+                totalIce = UserInterface.TotalIce(totalIce, iceNeededInt);
                 double sugarNeededInt = UserInterface.SugarWanted(player1);
                 totalMoney = Store.PurchaseSugar(sugarNeededInt, totalMoney);
-                UserInterface.TotalSugar(totalSugar, sugarNeededInt);
+                totalSugar = UserInterface.TotalSugar(totalSugar, sugarNeededInt);
                 Inventory.InventoryTotalStatement(totalSugar, totalCups, totalIce, totalLemons);
                 Console.WriteLine("Lets build today's recipe: How much sugar per cup would you like?");
                 int todaysSugarPerCup = Int32.Parse(Console.ReadLine());
@@ -60,27 +60,25 @@ namespace lemonadeStand
                         totalSugar = totalSugar - todaysSugarPerCup;
                         totalLemons = totalSugar - todaysLemonPerCup;
                         totalCups = totalCups - 1;
-                        if (Ice.CheckEmpty(totalIce))
+                        if (Ice.CheckEmpty(totalIce, i))
                         {
                             break;
                         }
-                        if (Lemon.CheckEmpty(totalLemons))
+                        if (Lemon.CheckEmpty(totalLemons, i))
                         {
                             break;
                         }
-                        if (Sugar.CheckEmpty(totalSugar))
+                        if (Sugar.CheckEmpty(totalSugar, i))
                         {
                             break;
                         }
-                        if (Cups.CheckEmpty(totalCups))
+                        if (Cups.CheckEmpty(totalCups, i))
                         {
                             break;
                         }
-
-                        Console.ReadLine();
                     }
                 }
-
+                Day.EndOfDayResults(totalSugar, totalCups, totalIce, totalLemons, totalMoney);
                 dayCount++;
             }
             while (dayCount < totalPlayTime);
