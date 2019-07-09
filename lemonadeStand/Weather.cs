@@ -11,8 +11,14 @@ namespace lemonadeStand
         public int temperature;
         public int weatherType;
 
-        public static int createWeather()
+        public static int createTemperature()
         {
+            Random rnd = new Random();
+            int temperature = rnd.Next(50, 100);
+            Console.WriteLine("The weather today is : " + temperature);
+            return temperature;
+        }
+        public static string createWeather() {
             List<string> weatherList = new List<string>();
             weatherList.Add("Sunny");
             weatherList.Add("Cloudy");
@@ -21,9 +27,12 @@ namespace lemonadeStand
             Random rnd = new Random();
             int weatherNumber = rnd.Next(3);
             string actualWeather = weatherList[weatherNumber];
-            int temperature = rnd.Next(50, 100);
-            Console.WriteLine("The weather today is : " + temperature + " & " + actualWeather);
-            return temperature;
+            return actualWeather;
+        }
+        public static string createForecast()
+        {
+            createWeather();
+            return "foo";
         }
     }
 }
