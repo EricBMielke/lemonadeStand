@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace lemonadeStand
 {
-    class Sugar
+    class Lemon
     {
-        public static bool CheckEmpty(double totalSugar)
+        public static bool CheckEmpty(double totalLemonade)
         {
-            if (totalSugar == 0)
+            if (totalLemonade == 0)
             {
                 Console.WriteLine("Sold out for the day");
                 return true;
