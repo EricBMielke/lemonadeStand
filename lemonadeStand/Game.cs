@@ -20,10 +20,11 @@ namespace lemonadeStand
             int dayCount = 0;
             string player1 = Setup.WelcomePlayer();
             int totalPlayTime = Setup.GameplayDuration(totalMoney);
+            int temperatureTomorrow = 0;
             do
             {
-                int temperatureTomorrow = Weather.CreateForecast();
                 int temperature = Weather.CreateTemperature(dayCount, temperatureTomorrow);
+                temperatureTomorrow = Weather.CreateForecast();
                 string weatherType = Weather.CreateWeather();
                 int patronNumbers = Day.patronsByDay(weatherType);
                 double lemonsNeededInt = UserInterface.LemonsWanted(player1);
@@ -45,7 +46,7 @@ namespace lemonadeStand
                 int todaysIcePerCup = Int32.Parse(Console.ReadLine());
                 Console.WriteLine("How many lemons per cup would you like?");
                 int todaysLemonPerCup = Int32.Parse(Console.ReadLine());
-                Console.WriteLine("How much is a price of lemonade? From free to $1");
+                Console.WriteLine("How much is a price of lemonade? From $.01 to $1.00");
                 double pricePerCup = Double.Parse(Console.ReadLine());
                 for (int i = 0; i < patronNumbers; i++)
                 {

@@ -8,8 +8,6 @@ namespace lemonadeStand
 {
     class Weather
     {
-        public int temperature;
-        public int weatherType;
 
         public static int CreateTemperature(int dayCount, int temperatureTomorrow)
         {
