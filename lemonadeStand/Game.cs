@@ -27,6 +27,8 @@ namespace lemonadeStand
             do
             {
                 int temperature = Weather.createTemperature();
+                string weatherType = Weather.createWeather();
+                int patronNumbers = Day.patronsByDay(weatherType);
                 Console.WriteLine("Alright, " + player1 + ". How many lemons would you like to buy?");
                 double lemonsNeededInt = Int32.Parse(Console.ReadLine());
                 totalMoney = Store.PurchaseLemons(lemonsNeededInt, totalMoney);
@@ -56,7 +58,7 @@ namespace lemonadeStand
                 int todaysLemonPerCup = Int32.Parse(Console.ReadLine());
                 Console.WriteLine("How much is a price of lemonade? From free to $1");
                 double pricePerCup = Int32.Parse(Console.ReadLine());
-                for (int i = 0; i < 100; i++)
+                for (int i = 0; i < patronNumbers; i++)
                 {
                 int chanceDueToPrice = Customer.chancePurchaseByPrice(pricePerCup);
                 int chanceDueToTemp = Customer.chancePurchaseByTemperature(temperature);
