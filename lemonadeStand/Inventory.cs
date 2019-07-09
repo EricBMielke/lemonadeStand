@@ -11,7 +11,7 @@ namespace lemonadeStand
         public static double PurchaseLemons(double lemonsNeededInt, double totalMoney)
         {
             double currentMoney = totalMoney - (lemonsNeededInt * .05);
-            Console.WriteLine("At $.05 per lemon, you bought " + lemonsNeededInt +". Your running total is " + currentMoney + ".");
+            Console.WriteLine("At $.05 per lemon, you bought " + lemonsNeededInt +". Your running total is $" + currentMoney + ".");
             return currentMoney;
         }
         public static double PurchaseCups(double cupsNeededInt, double totalMoney)

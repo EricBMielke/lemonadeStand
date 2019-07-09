@@ -26,6 +26,7 @@ namespace lemonadeStand
             int totalPlayTime = Int32.Parse(Console.ReadLine());
             do
             {
+                Weather.createWeather();
                 Console.WriteLine("Alright, " + player1 + ". How many lemons would you like to buy?");
                 double lemonsNeededInt = Int32.Parse(Console.ReadLine());
                 totalMoney = Inventory.PurchaseLemons(lemonsNeededInt, totalMoney);
