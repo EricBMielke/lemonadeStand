@@ -18,15 +18,13 @@ namespace lemonadeStand
             double totalIce = 0;
             double totalMoney = 20;
             int dayCount = 0;
-            string player1;
-            int totalPlayTime;
-
-            player1 = Setup.WelcomePlayer();
-            totalPlayTime = Setup.GameplayDuration(totalMoney);
+            string player1 = Setup.WelcomePlayer();
+            int totalPlayTime = Setup.GameplayDuration(totalMoney);
             do
             {
-                int temperature = Weather.createTemperature();
-                string weatherType = Weather.createWeather();
+                int temperatureTomorrow = Weather.CreateForecast();
+                int temperature = Weather.CreateTemperature(dayCount, temperatureTomorrow);
+                string weatherType = Weather.CreateWeather();
                 int patronNumbers = Day.patronsByDay(weatherType);
                 double lemonsNeededInt = UserInterface.LemonsWanted(player1);
                 totalMoney = Store.PurchaseLemons(lemonsNeededInt, totalMoney);

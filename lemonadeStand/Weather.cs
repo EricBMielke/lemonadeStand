@@ -11,14 +11,31 @@ namespace lemonadeStand
         public int temperature;
         public int weatherType;
 
-        public static int createTemperature()
+        public static int CreateTemperature(int dayCount, int temperatureTomorrow)
         {
-            Random rnd = new Random();
-            int temperature = rnd.Next(50, 100);
+            int temperature;
+            if (dayCount == 0)
+           
+            {
+                Random rnd = new Random();
+                temperature = rnd.Next(50, 100);
+            }
+            else
+            {
+                temperature = temperatureTomorrow;
+            }
             Console.WriteLine("The weather today is : " + temperature);
             return temperature;
         }
-        public static string createWeather() {
+        public static int CreateForecast()
+        {
+            Random rnd = new Random();
+            int temperatureTomorrow = rnd.Next(50, 100);
+            Console.WriteLine("The weather tomorrow is : " + temperatureTomorrow);
+            return temperatureTomorrow;
+        }
+
+        public static string CreateWeather() {
             List<string> weatherList = new List<string>();
             weatherList.Add("sunny");
             weatherList.Add("cloudy");
@@ -28,11 +45,6 @@ namespace lemonadeStand
             int weatherNumber = rnd.Next(3);
             string actualWeather = weatherList[weatherNumber];
             return actualWeather;
-        }
-        public static string createForecast()
-        {
-            createWeather();
-            return "foo";
         }
     }
 }
