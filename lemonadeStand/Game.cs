@@ -79,9 +79,11 @@ namespace lemonadeStand
                     }
                 }
                 Day.EndOfDayResults(totalSugar, totalCups, totalIce, totalLemons, totalMoney);
+                Day.EndOfDayNetStanding(totalMoney);
                 dayCount++;
             }
             while (dayCount < totalPlayTime);
+            Day.EndOfPlayNetStanding(totalMoney);
         }
     }
 }

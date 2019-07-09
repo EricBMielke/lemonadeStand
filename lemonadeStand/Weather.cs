@@ -20,10 +20,10 @@ namespace lemonadeStand
         }
         public static string createWeather() {
             List<string> weatherList = new List<string>();
-            weatherList.Add("Sunny");
-            weatherList.Add("Cloudy");
-            weatherList.Add("Rainy");
-            weatherList.Add("Hazy");
+            weatherList.Add("sunny");
+            weatherList.Add("cloudy");
+            weatherList.Add("rainy");
+            weatherList.Add("hazy");
             Random rnd = new Random();
             int weatherNumber = rnd.Next(3);
             string actualWeather = weatherList[weatherNumber];
