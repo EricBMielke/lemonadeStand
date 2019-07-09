@@ -18,9 +18,9 @@ namespace lemonadeStand
             double totalIce = 0;
             double totalMoney = 20;
             int dayCount = 0;
-            Console.WriteLine("Welcome to Lemonade Stand! What is your name?");
-            string player1 = Console.ReadLine();
-            Console.WriteLine("Let's begin " + player1 + "!");
+            string player1;
+
+            player1 = Setup.WelcomePlayer();
             Console.WriteLine("You are in charge of ordering lemons, ice, sugar and cups for your lemonade stand. You will create the recipe and sell it to the masses. Your currently have $" + totalMoney + " to build your empire");
             Console.WriteLine("For how long would you like to play the game? Your options are 7, 14, or 21 days.");
             int totalPlayTime = Int32.Parse(Console.ReadLine());
@@ -57,7 +57,7 @@ namespace lemonadeStand
                 Console.WriteLine("How many lemons per cup would you like?");
                 int todaysLemonPerCup = Int32.Parse(Console.ReadLine());
                 Console.WriteLine("How much is a price of lemonade? From free to $1");
-                double pricePerCup = Int32.Parse(Console.ReadLine());
+                double pricePerCup = Double.Parse(Console.ReadLine());
                 for (int i = 0; i < patronNumbers; i++)
                 {
                 int chanceDueToPrice = Customer.chancePurchaseByPrice(pricePerCup);
