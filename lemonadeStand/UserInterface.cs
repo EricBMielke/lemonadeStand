@@ -8,9 +8,10 @@ namespace lemonadeStand
 {
     class UserInterface
     {
+
         public static int LemonsWanted (string player1)
         {
-            int lemonsNeededInt = 0;
+            int lemonsNeededInt;
             Console.WriteLine("Alright, " + player1 + ". How many lemons would you like to buy? Price is $.05 per lemon.");
             try
             {
@@ -21,7 +22,7 @@ namespace lemonadeStand
             catch (Exception)
             {
                 Console.WriteLine("You need to enter a valid integer");
-                LemonsWanted(player1);
+                lemonsNeededInt = LemonsWanted(player1);
                 return lemonsNeededInt;
             }
         }
@@ -33,7 +34,7 @@ namespace lemonadeStand
         }
         public static int CupsWanted(string player1)
         {
-            int cupsNeededInt = 0;
+            int cupsNeededInt;
             Console.WriteLine("Alright, " + player1 + ". How many cups would you like to buy? Price is $.05 per piece.");
             try
             {
@@ -44,7 +45,7 @@ namespace lemonadeStand
             catch (Exception)
             {
                 Console.WriteLine("You need to enter a valid integer");
-                CupsWanted(player1);
+                cupsNeededInt = CupsWanted(player1);
                 return cupsNeededInt;
             }
         }
@@ -57,7 +58,7 @@ namespace lemonadeStand
 
         public static int IceWanted(string player1)
         {
-            int iceNeededInt = 0;
+            int iceNeededInt;
             Console.WriteLine("Alright, " + player1 + ". How much ice would you like to buy? Price is $.05 per piece.");
             try
             {
@@ -68,7 +69,7 @@ namespace lemonadeStand
             catch (Exception)
             {
                 Console.WriteLine("You need to enter a valid integer");
-                IceWanted(player1);
+                iceNeededInt = IceWanted(player1);
                 return iceNeededInt;
             }
         }
@@ -80,7 +81,7 @@ namespace lemonadeStand
         }
         public static double SugarWanted(string player1)
         {
-            int sugarNeededInt = 0;
+            int sugarNeededInt;
             Console.WriteLine("Alright, " + player1 + ". How much sugar would you like to buy? Price is $.05 per piece.");
             try
             {
@@ -91,7 +92,7 @@ namespace lemonadeStand
             catch (Exception)
             {
                 Console.WriteLine("You need to enter a valid integer");
-                SugarWanted(player1);
+                sugarNeededInt = SugarWanted(player1);
                 return sugarNeededInt;
             }
         }
