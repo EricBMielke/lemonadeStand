@@ -59,15 +59,18 @@ namespace lemonadeStand
                         totalSugar = totalSugar - todaysSugarPerCup;
                         totalLemons = totalSugar - todaysLemonPerCup;
                         totalCups = totalCups - 1;
-                        if (Ice.CheckEmpty(totalIce, i))
+                        Ice iceCheck = new Ice();
+                        if (iceCheck.CheckEmpty(totalIce, i))
                         {
                             break;
                         }
-                        if (Lemon.CheckEmpty(totalLemons, i))
+                        Lemon lemonCheck = new Lemon();
+                        if (lemonCheck.CheckEmpty(totalLemons, i))
                         {
                             break;
                         }
-                        if (Sugar.CheckEmpty(totalSugar, i))
+                        Sugar sugarCheck = new Sugar();
+                        if (sugarCheck.CheckEmpty(totalSugar, i))
                         {
                             break;
                         }

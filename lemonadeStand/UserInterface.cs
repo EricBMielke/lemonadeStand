@@ -10,7 +10,7 @@ namespace lemonadeStand
     {
         public static double LemonsWanted (string player1)
         {
-            Console.WriteLine("Alright, " + player1 + ". How many lemons would you like to buy?");
+            Console.WriteLine("Alright, " + player1 + ". How many lemons would you like to buy? Price is $.05 per lemon.");
             double lemonsNeededInt = Int32.Parse(Console.ReadLine());
             return lemonsNeededInt;
         }
