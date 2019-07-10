@@ -8,25 +8,25 @@ namespace lemonadeStand
 {
     class Recipe
     {
-        public static int RecipeRequestSugar()
+        public int RecipeRequestSugar()
         {
             Console.WriteLine("Lets build today's recipe: How much sugar per cup would you like?");
             int todaysSugarPerCup = Int32.Parse(Console.ReadLine());
             return todaysSugarPerCup;
         }
-        public static int RecipeRequestIce()
+        public int RecipeRequestIce()
         {
             Console.WriteLine("Lets build today's recipe: How much ice per cup would you like?");
             int todaysIcePerCup = Int32.Parse(Console.ReadLine());
             return todaysIcePerCup;
         }
-        public static int RecipeRequestLemons()
+        public int RecipeRequestLemons()
         {
             Console.WriteLine("Lets build today's recipe: How many lemons per cup would you like?");
             int todaysLemonPerCup = Int32.Parse(Console.ReadLine());
             return todaysLemonPerCup;
         }
-        public static double RecipeRequestPrice()
+        public double RecipeRequestPrice()
         {
             Console.WriteLine("How much is a price of lemonade? From $.01 to $1.00");
             double pricePerCup = 0;

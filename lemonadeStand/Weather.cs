@@ -14,7 +14,7 @@ namespace lemonadeStand
             rng = new Random();
         }
 
-        public static int CreateTemperature(int dayCount, int temperatureTomorrow)
+        public int CreateTemperature(int dayCount, int temperatureTomorrow)
         {
             int temperature;
             if (dayCount == 0)
@@ -30,14 +30,14 @@ namespace lemonadeStand
             Console.WriteLine("The weather today is : " + temperature);
             return temperature;
         }
-        public static int CreateForecast()
+        public int CreateForecast()
         {
             int temperatureTomorrow = rng.Next(50, 100);
             Console.WriteLine("The weather tomorrow is : " + temperatureTomorrow);
             return temperatureTomorrow;
         }
 
-        public static string CreateWeather() {
+        public string CreateWeather() {
             List<string> weatherList = new List<string>();
             weatherList.Add("sunny");
             weatherList.Add("cloudy");

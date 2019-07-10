@@ -8,7 +8,7 @@ namespace lemonadeStand
 {
     class Customer
     {
-        public static int chancePurchaseByPrice(double pricePerCup)
+        public int ChancePurchaseByPrice(double pricePerCup)
         {
             if (.75 < pricePerCup && pricePerCup <= 1)
             {
@@ -35,7 +35,7 @@ namespace lemonadeStand
                 return chanceDueToPrice;
             }
         }
-        public static int chancePurchaseByTemperature(double temperature)
+        public int ChancePurchaseByTemperature(double temperature)
         {
             if (85 < temperature && temperature <= 100)
             {
@@ -56,7 +56,7 @@ namespace lemonadeStand
                 return chanceDueToTemp;
             }
         }
-        public static bool lemonadePurchase (int chanceDueToTemp, int ChanceDueToPrice)
+        public bool LemonadePurchase (int chanceDueToTemp, int ChanceDueToPrice)
         {
             if ((chanceDueToTemp * ChanceDueToPrice) > 2500)
             {
