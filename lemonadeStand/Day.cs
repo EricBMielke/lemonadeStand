@@ -46,14 +46,14 @@ namespace lemonadeStand
             Console.WriteLine("Cups:" + totalCups);
             Console.WriteLine("Ice:" + totalIce);
             Console.WriteLine("Lemons:" + totalLemons);
-            Console.WriteLine("Total Money :$" + totalMoney);
+            Console.WriteLine("Total Money :$" + totalMoney.ToString("0.00"));
         }
 
         public static double EndOfDayNetStanding(double totalMoney)
         {
             if(totalMoney > 20)
             {
-                Console.WriteLine("You've made an overall profit of $" + (totalMoney - 20) + ".");
+                Console.WriteLine("You've made an overall profit of $" + (totalMoney - 20).ToString("0.00") + ".");
             }
             else if(totalMoney == 20)
             {
@@ -61,7 +61,7 @@ namespace lemonadeStand
             }
             else
             {
-                Console.WriteLine("You've lost $" + (20 - totalMoney) + " total.");
+                Console.WriteLine("You've lost $" + (20 - totalMoney).ToString("0.00") + " total.");
             }
             return totalMoney;
         }
@@ -87,7 +87,7 @@ namespace lemonadeStand
         {
             if (totalMoney > 20)
             {
-                Console.WriteLine("Amazing work. You've made an overall profit of $" + (totalMoney - 20) + ".");
+                Console.WriteLine("Amazing work. You've made an overall profit of $" + (totalMoney - 20).ToString("0.00") + ".");
             }
             else if (totalMoney == 20)
             {
@@ -95,7 +95,7 @@ namespace lemonadeStand
             }
             else
             {
-                Console.WriteLine("Room for improvement. You've lost $" + (20 - totalMoney) + " total.");
+                Console.WriteLine("Room for improvement. You've lost $" + (20 - totalMoney).ToString("0.00") + " total.");
             }
             return totalMoney;
         }
