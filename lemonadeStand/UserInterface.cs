@@ -79,7 +79,7 @@ namespace lemonadeStand
             Console.WriteLine("Your total number of ice is " + totalIce);
             return totalIce;
         }
-        public static double SugarWanted(string player1)
+        public static int SugarWanted(string player1)
         {
             int sugarNeededInt;
             Console.WriteLine("Alright, " + player1 + ". How much sugar would you like to buy? Price is $.05 per piece.");

@@ -12,7 +12,7 @@ namespace lemonadeStand
         {
             if (totalCups <= 0)
             {
-                Console.WriteLine("Sold out for the day after the " + i + " customer");
+                Console.WriteLine("Sold out for the day after customer number " + (i + 1));
                 return true;
             }
             else

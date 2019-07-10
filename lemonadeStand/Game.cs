@@ -21,6 +21,7 @@ namespace lemonadeStand
             int temperatureTomorrow = 0;
             do
             {
+                //Principle S of SOLID is below : All functions handle one singular purpose...specifically, CreateTemperature only worries about creating the current days temperature and returning it to the user
                 int temperature = Weather.CreateTemperature(dayCount, temperatureTomorrow);
                 temperatureTomorrow = Weather.CreateForecast();
                 string weatherType = Weather.CreateWeather();
@@ -51,8 +52,9 @@ namespace lemonadeStand
                         totalMoney = totalMoney + pricePerCup;
                         totalIce = totalIce-todaysIcePerCup;
                         totalSugar = totalSugar - todaysSugarPerCup;
-                        totalLemons = totalSugar - todaysLemonPerCup;
+                        totalLemons = totalLemons - todaysLemonPerCup;
                         totalCups = totalCups - 1;
+                        //Principle O of SOLID is below: The CheckEmpty method lives in the parent class of Ingredients.  The subclasses of Ice, Lemon, Sugar, and Cups are build off this parent class
                         Ice iceCheck = new Ice();
                         if (iceCheck.CheckEmpty(totalIce, i))
                         {

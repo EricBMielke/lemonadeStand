@@ -8,6 +8,11 @@ namespace lemonadeStand
 {
     class Weather
     {
+        static Random rng;
+        static Weather()
+        {
+            rng = new Random();
+        }
 
         public static int CreateTemperature(int dayCount, int temperatureTomorrow)
         {
@@ -15,8 +20,8 @@ namespace lemonadeStand
             if (dayCount == 0)
            
             {
-                Random rnd = new Random();
-                temperature = rnd.Next(50, 100);
+                
+                temperature = rng.Next(50, 100);
             }
             else
             {
@@ -27,8 +32,7 @@ namespace lemonadeStand
         }
         public static int CreateForecast()
         {
-            Random rnd = new Random();
-            int temperatureTomorrow = rnd.Next(50, 100);
+            int temperatureTomorrow = rng.Next(50, 100);
             Console.WriteLine("The weather tomorrow is : " + temperatureTomorrow);
             return temperatureTomorrow;
         }
@@ -39,8 +43,8 @@ namespace lemonadeStand
             weatherList.Add("cloudy");
             weatherList.Add("rainy");
             weatherList.Add("hazy");
-            Random rnd = new Random();
-            int weatherNumber = rnd.Next(3);
+            
+            int weatherNumber = rng.Next(3);
             string actualWeather = weatherList[weatherNumber];
             return actualWeather;
         }
