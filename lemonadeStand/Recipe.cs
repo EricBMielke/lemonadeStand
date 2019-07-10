@@ -28,19 +28,22 @@ namespace lemonadeStand
         }
         public double RecipeRequestPrice()
         {
-            Console.WriteLine("How much is a price of lemonade? From $.01 to $1.00");
             double pricePerCup = 0;
-            try
+            do
             {
-                pricePerCup = Double.Parse(Console.ReadLine());
-                return pricePerCup;
+                Console.WriteLine("How much is a price of lemonade? From $.01 to $1.00");
+                try
+                {
+                    pricePerCup = Double.Parse(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("You cannot leave the question blank and you must enter a decimal between .01 and 1.00");
+                    RecipeRequestPrice();
+                }
             }
-            catch (Exception)
-            {
-                Console.WriteLine("You cannot leave the question blank and you must enter a decimal between .01 and 1.00");
-                RecipeRequestPrice();
-                return pricePerCup;
-            }
+            while (pricePerCup < 0 || pricePerCup > 1);
+            return pricePerCup;
         }
     }
 }
