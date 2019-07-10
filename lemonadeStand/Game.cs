@@ -8,8 +8,6 @@ namespace lemonadeStand
 {
     class Game
     {
-        public double dayCount;
-        public string totalPlayTime;
         public void RunGame()
         {
             double totalLemons = 0;
@@ -40,14 +38,10 @@ namespace lemonadeStand
                 totalMoney = Store.PurchaseSugar(sugarNeededInt, totalMoney);
                 totalSugar = UserInterface.TotalSugar(totalSugar, sugarNeededInt);
                 Inventory.InventoryTotalStatement(totalSugar, totalCups, totalIce, totalLemons);
-                Console.WriteLine("Lets build today's recipe: How much sugar per cup would you like?");
-                int todaysSugarPerCup = Int32.Parse(Console.ReadLine());
-                Console.WriteLine("How much ice per cup would you like?");
-                int todaysIcePerCup = Int32.Parse(Console.ReadLine());
-                Console.WriteLine("How many lemons per cup would you like?");
-                int todaysLemonPerCup = Int32.Parse(Console.ReadLine());
-                Console.WriteLine("How much is a price of lemonade? From $.01 to $1.00");
-                double pricePerCup = Double.Parse(Console.ReadLine());
+                int todaysSugarPerCup = Recipe.RecipeRequestSugar();
+                int todaysIcePerCup = Recipe.RecipeRequestIce();
+                int todaysLemonPerCup = Recipe.RecipeRequestLemons();
+                double pricePerCup = Recipe.RecipeRequestPrice();
                 for (int i = 0; i < patronNumbers; i++)
                 {
                 int chanceDueToPrice = Customer.chancePurchaseByPrice(pricePerCup);

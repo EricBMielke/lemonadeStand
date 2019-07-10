@@ -8,11 +8,22 @@ namespace lemonadeStand
 {
     class UserInterface
     {
-        public static double LemonsWanted (string player1)
+        public static int LemonsWanted (string player1)
         {
+            int lemonsNeededInt = 0;
             Console.WriteLine("Alright, " + player1 + ". How many lemons would you like to buy? Price is $.05 per lemon.");
-            double lemonsNeededInt = Int32.Parse(Console.ReadLine());
-            return lemonsNeededInt;
+            try
+            {
+                lemonsNeededInt = Int32.Parse(Console.ReadLine());
+                return lemonsNeededInt;
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("You need to enter a valid integer");
+                LemonsWanted(player1);
+                return lemonsNeededInt;
+            }
         }
         public static double TotalLemons (double totalLemons, double lemonsNeededInt)
         {
@@ -20,11 +31,22 @@ namespace lemonadeStand
             Console.WriteLine("Your total number of lemons are " + totalLemons);
             return totalLemons;
         }
-        public static double CupsWanted(string player1)
+        public static int CupsWanted(string player1)
         {
+            int cupsNeededInt = 0;
             Console.WriteLine("Alright, " + player1 + ". How many cups would you like to buy? Price is $.04 per piece.");
-            double cupsNeededInt = Int32.Parse(Console.ReadLine());
-            return cupsNeededInt;
+            try
+            {
+                cupsNeededInt = Int32.Parse(Console.ReadLine());
+                return cupsNeededInt;
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("You need to enter a valid integer");
+                CupsWanted(player1);
+                return cupsNeededInt;
+            }
         }
         public static double TotalCups(double totalCups, double cupsNeededInt)
         {
@@ -33,11 +55,22 @@ namespace lemonadeStand
             return totalCups;
         }
 
-        public static double IceWanted(string player1)
+        public static int IceWanted(string player1)
         {
+            int iceNeededInt = 0;
             Console.WriteLine("Alright, " + player1 + ". How much ice would you like to buy? Price is $.04 per piece.");
-            double iceNeededInt = Int32.Parse(Console.ReadLine());
-            return iceNeededInt;
+            try
+            {
+                iceNeededInt = Int32.Parse(Console.ReadLine());
+                return iceNeededInt;
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("You need to enter a valid integer");
+                IceWanted(player1);
+                return iceNeededInt;
+            }
         }
         public static double TotalIce(double totalIce, double iceNeededInt)
         {
@@ -47,9 +80,20 @@ namespace lemonadeStand
         }
         public static double SugarWanted(string player1)
         {
+            int sugarNeededInt = 0;
             Console.WriteLine("Alright, " + player1 + ". How much sugar would you like to buy? Price is $.04 per piece.");
-            double sugarNeededInt = Int32.Parse(Console.ReadLine());
-            return sugarNeededInt;
+            try
+            {
+                sugarNeededInt = Int32.Parse(Console.ReadLine());
+                return sugarNeededInt;
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("You need to enter a valid integer");
+                SugarWanted(player1);
+                return sugarNeededInt;
+            }
         }
         public static double TotalSugar(double totalSugar, double sugarNeededInt)
         {
