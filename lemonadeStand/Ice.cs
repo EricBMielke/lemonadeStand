@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace lemonadeStand
 {
-    class Ice
+    public class Ice : Ingredient
     {
-        public static bool CheckEmpty(double totalIce, int i)
+        public override bool CheckEmpty(double totalIce, int i)
         {
             if (totalIce <= 0)
             {
