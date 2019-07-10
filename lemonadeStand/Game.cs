@@ -77,6 +77,8 @@ namespace lemonadeStand
                         }
                     }
                 }
+                totalLemons = Day.EndOfDayLemonSpoil(totalLemons);
+                totalIce = Day.EndOfDayIceMelt(totalIce);
                 Day.EndOfDayResults(totalSugar, totalCups, totalIce, totalLemons, totalMoney);
                 Day.EndOfDayNetStanding(totalMoney);
                 dayCount++;

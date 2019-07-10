@@ -65,6 +65,24 @@ namespace lemonadeStand
             }
             return totalMoney;
         }
+        public static double EndOfDayIceMelt (double totalIce)
+        {
+            Console.WriteLine("Your ice has melted.");
+            totalIce = 0;
+            return totalIce;
+
+        }
+        public static double EndOfDayLemonSpoil (double totalLemons)
+        {
+            Random rnd = new Random();
+            int lemonSpoil = rnd.Next(0, 100);
+            if (0 < lemonSpoil && lemonSpoil < 10)
+            {
+                totalLemons = totalLemons / 2;
+                Console.WriteLine("Some of your lemons spoiled. You now have " + totalLemons);
+            }
+            return totalLemons;
+        }
         public static double EndOfPlayNetStanding(double totalMoney)
         {
             if (totalMoney > 20)
