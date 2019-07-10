@@ -37,8 +37,10 @@ namespace lemonadeStand
                     GameplayDuration(totalMoney);
                 }
             }
-            while (totalPlayTime < 7 && totalPlayTime > 30);
+            while (totalPlayTime < 7  || totalPlayTime > 30);
             return totalPlayTime;
         }
+      
+            
     }
 }

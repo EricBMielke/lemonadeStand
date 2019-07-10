@@ -34,7 +34,7 @@ namespace lemonadeStand
         public static int CupsWanted(string player1)
         {
             int cupsNeededInt = 0;
-            Console.WriteLine("Alright, " + player1 + ". How many cups would you like to buy? Price is $.04 per piece.");
+            Console.WriteLine("Alright, " + player1 + ". How many cups would you like to buy? Price is $.05 per piece.");
             try
             {
                 cupsNeededInt = Int32.Parse(Console.ReadLine());
@@ -58,7 +58,7 @@ namespace lemonadeStand
         public static int IceWanted(string player1)
         {
             int iceNeededInt = 0;
-            Console.WriteLine("Alright, " + player1 + ". How much ice would you like to buy? Price is $.04 per piece.");
+            Console.WriteLine("Alright, " + player1 + ". How much ice would you like to buy? Price is $.05 per piece.");
             try
             {
                 iceNeededInt = Int32.Parse(Console.ReadLine());
@@ -81,7 +81,7 @@ namespace lemonadeStand
         public static double SugarWanted(string player1)
         {
             int sugarNeededInt = 0;
-            Console.WriteLine("Alright, " + player1 + ". How much sugar would you like to buy? Price is $.04 per piece.");
+            Console.WriteLine("Alright, " + player1 + ". How much sugar would you like to buy? Price is $.05 per piece.");
             try
             {
                 sugarNeededInt = Int32.Parse(Console.ReadLine());

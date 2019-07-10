@@ -78,6 +78,7 @@ namespace lemonadeStand
                 totalIce = Day.EndOfDayIceMelt(totalIce);
                 Day.EndOfDayResults(totalSugar, totalCups, totalIce, totalLemons, totalMoney);
                 Day.EndOfDayNetStanding(totalMoney);
+                Day.BankruptcyCheck(totalMoney);
                 dayCount++;
             }
             while (dayCount < totalPlayTime);

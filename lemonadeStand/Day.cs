@@ -65,6 +65,19 @@ namespace lemonadeStand
             }
             return totalMoney;
         }
+        public static bool BankruptcyCheck(double totalMoney)
+        {
+            if (totalMoney <= 0)
+            {
+                Console.WriteLine("You have spent more money than you have. Your session will be terminated");
+                Environment.Exit(0);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public static double EndOfDayIceMelt (double totalIce)
         {
             Console.WriteLine("Your ice has melted.");

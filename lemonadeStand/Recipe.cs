@@ -32,20 +32,12 @@ namespace lemonadeStand
             double pricePerCup = 0;
             try
             {
-                pricePerCup = Int32.Parse(Console.ReadLine());
+                pricePerCup = Double.Parse(Console.ReadLine());
+                return pricePerCup;
             }
             catch (Exception)
             {
                 Console.WriteLine("You cannot leave the question blank and you must enter a decimal between .01 and 1.00");
-                RecipeRequestPrice();
-            }
-            if (pricePerCup >= .01 && pricePerCup <= 1)
-            {
-                return pricePerCup;
-            }
-            else
-            {
-                Console.WriteLine("The number must be between 7 to 30");
                 RecipeRequestPrice();
                 return pricePerCup;
             }
