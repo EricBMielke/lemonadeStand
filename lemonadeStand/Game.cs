@@ -21,13 +21,13 @@ namespace lemonadeStand
 
             //Actual method
             Setup game = new Setup();
+            Day currentDay = new Day();
             string player1 = game.WelcomePlayer();
             int totalPlayTime = game.GameplayDuration(totalMoney);
             do
             {
                 //Principle S of SOLID is below : All functions handle one singular purpose...specifically, CreateTemperature only worries about creating the current days temperature and returning it to the user
                 Weather weather = new Weather();
-                Day currentDay = new Day();
                 Store store = new Store();
                 UserInterface userInterface = new UserInterface();
                 Inventory inventory = new Inventory();
