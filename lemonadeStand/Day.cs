@@ -86,6 +86,12 @@ namespace lemonadeStand
             return totalIce;
 
         }
+        public int StateDay(int dayCount)
+        {
+            Console.WriteLine("It is the end of day " + dayCount);
+            return dayCount;
+
+        }
         public double EndOfDayLemonSpoil (double totalLemons)
         {
             Random rnd = new Random();

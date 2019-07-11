@@ -24,7 +24,7 @@ namespace lemonadeStand
             {
                 await game.RunGame();
             }
-            while (!setup.AskToReplay());
+            while (setup.AskToReplay());
         }
     }
 }

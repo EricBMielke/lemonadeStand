@@ -101,6 +101,7 @@ namespace lemonadeStand
                 currentDay.EndOfDayResults(totalSugar, totalCups, totalIce, totalLemons, totalMoney);
                 currentDay.EndOfDayNetStanding(totalMoney);
                 currentDay.BankruptcyCheck(totalMoney);
+                currentDay.StateDay(dayCount);
                 dayCount++;
             }
             while (dayCount < totalPlayTime);

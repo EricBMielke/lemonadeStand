@@ -8,30 +8,35 @@ namespace lemonadeStand
 {
     class Customer
     {
+        static Random rng;
+
+        static Customer()
+        {
+            rng = new Random();
+        }
+
         public int ChancePurchaseByPrice(double pricePerCup)
         {
+            rng = new Random();
+
             if (.75 < pricePerCup && pricePerCup <= 1)
             {
-                Random rnd = new Random();
-                int chanceDueToPrice = rnd.Next(35, 55);
+                int chanceDueToPrice = rng.Next(35, 55);
                 return chanceDueToPrice;
             }
             else if (.5 <= pricePerCup && pricePerCup <= .75)
             {
-                Random rnd = new Random();
-                int chanceDueToPrice = rnd.Next(40, 60);
+                int chanceDueToPrice = rng.Next(40, 60);
                 return chanceDueToPrice;
             }
             else if (.25 <= pricePerCup && pricePerCup < .50)
             {
-                Random rnd = new Random();
-                int chanceDueToPrice = rnd.Next(45, 65);
+                int chanceDueToPrice = rng.Next(45, 65);
                 return chanceDueToPrice;
             }
             else
             {
-                Random rnd = new Random();
-                int chanceDueToPrice = rnd.Next(50, 70);
+                int chanceDueToPrice = rng.Next(50, 70);
                 return chanceDueToPrice;
             }
         }
@@ -39,20 +44,17 @@ namespace lemonadeStand
         {
             if (85 < temperature && temperature <= 100)
             {
-                Random rnd = new Random();
-                int chanceDueToTemp = rnd.Next(50, 80);
+                int chanceDueToTemp = rng.Next(50, 80);
                 return chanceDueToTemp;
             }
             else if (65 <= temperature && temperature <= 85)
             {
-                Random rnd = new Random();
-                int chanceDueToTemp = rnd.Next(35, 65);
+                int chanceDueToTemp = rng.Next(35, 65);
                 return chanceDueToTemp;
             }
             else
             {
-                Random rnd = new Random();
-                int chanceDueToTemp = rnd.Next(25, 55);
+                int chanceDueToTemp = rng.Next(25, 55);
                 return chanceDueToTemp;
             }
         }
