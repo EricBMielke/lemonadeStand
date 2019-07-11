@@ -1,17 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace lemonadeStand
 {
-    class Program
+    public class DataObject
     {
-        static void Main(string[] args)
+        public string Name { get; set; }
+    }
+    public class Program
+    {
+        private const string URL = "http://api.openweathermap.org/data/2.5/weather";
+        static async System.Threading.Tasks.Task Main(string[] args)
         {
             Game game = new Game();
-            game.RunGame();
+            await game.RunGame();
         }
     }
 }

@@ -8,7 +8,7 @@ namespace lemonadeStand
 {
     class Setup
     {
-        public static string WelcomePlayer()
+        public string WelcomePlayer()
         {
             string player1;
             do
@@ -20,7 +20,19 @@ namespace lemonadeStand
             Console.WriteLine("Let's begin " + player1 + "!");
             return player1;
         }
-        public static int GameplayDuration(double totalMoney)
+        public string PlayerLocation()
+        {
+            string playerLocation;
+            do
+            {
+                Console.WriteLine("Where is your lemonade stand going to be located?");
+                playerLocation = Console.ReadLine();
+            }
+            while (playerLocation == "");
+            Console.WriteLine("I hear that " + playerLocation + " is rad this time of year.");
+            return playerLocation;
+        }
+        public int GameplayDuration(double totalMoney)
         {
             int totalPlayTime = 0;
             do

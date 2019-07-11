@@ -8,46 +8,65 @@ namespace lemonadeStand
 {
     class Game
     {
-        public void RunGame()
+        public async System.Threading.Tasks.Task RunGame()
         {
+            //Method variables
             double totalLemons = 0;
             double totalCups = 0;
             double totalSugar = 0;
             double totalIce = 0;
             double totalMoney = 20;
             int dayCount = 0;
-            string player1 = Setup.WelcomePlayer();
-            int totalPlayTime = Setup.GameplayDuration(totalMoney);
             int temperatureTomorrow = 0;
+
+            //Actual method
+            Setup game = new Setup();
+            Day currentDay = new Day();
+            OnlineWeather todaysWeather = new OnlineWeather();
+            string player1 = game.WelcomePlayer();
+            int totalPlayTime = game.GameplayDuration(totalMoney);
+            string cityOfPlayer = game.PlayerLocation();
+            double updatedOnlineTemp = await todaysWeather.fetchWeatherOnline(cityOfPlayer);
             do
             {
                 //Principle S of SOLID is below : All functions handle one singular purpose...specifically, CreateTemperature only worries about creating the current days temperature and returning it to the user
-                int temperature = Weather.CreateTemperature(dayCount, temperatureTomorrow);
-                temperatureTomorrow = Weather.CreateForecast();
-                string weatherType = Weather.CreateWeather();
-                int patronNumbers = Day.patronsByDay(weatherType);
-                double lemonsNeededInt = UserInterface.LemonsWanted(player1);
-                totalMoney = Store.PurchaseLemons(lemonsNeededInt, totalMoney);
-                totalLemons = UserInterface.TotalLemons(totalLemons, lemonsNeededInt);
-                double cupsNeededInt = UserInterface.CupsWanted(player1);
-                totalMoney = Store.PurchaseCups(cupsNeededInt, totalMoney);
-                totalCups = UserInterface.TotalCups(totalCups, cupsNeededInt);
-                double iceNeededInt = UserInterface.IceWanted(player1);
-                totalMoney = Store.PurchaseIce(iceNeededInt, totalMoney);
-                totalIce = UserInterface.TotalIce(totalIce, iceNeededInt);
-                double sugarNeededInt = UserInterface.SugarWanted(player1);
-                totalMoney = Store.PurchaseSugar(sugarNeededInt, totalMoney);
-                totalSugar = UserInterface.TotalSugar(totalSugar, sugarNeededInt);
-                Inventory.InventoryTotalStatement(totalSugar, totalCups, totalIce, totalLemons);
-                int todaysSugarPerCup = Recipe.RecipeRequestSugar();
-                int todaysIcePerCup = Recipe.RecipeRequestIce();
-                int todaysLemonPerCup = Recipe.RecipeRequestLemons();
-                double pricePerCup = Recipe.RecipeRequestPrice();
+                WeatherStatus weather = new WeatherStatus();
+                Store store = new Store();
+                UserInterface userInterface = new UserInterface();
+                Inventory inventory = new Inventory();
+                Recipe recipe = new Recipe();
+                Customer customer = new Customer();
+                Ice ice = new Ice();
+                Sugar sugar = new Sugar();
+                Cups cups = new Cups();
+                Lemon lemon = new Lemon();
+
+                int temperature = weather.CreateTemperature(dayCount, temperatureTomorrow, updatedOnlineTemp);
+                temperatureTomorrow = weather.CreateForecast();
+                string weatherType = weather.CreateWeather();
+                int patronNumbers = currentDay.patronsByDay(weatherType);
+                double lemonsNeededInt = userInterface.LemonsWanted(player1);
+                totalMoney = store.PurchaseLemons(lemonsNeededInt, totalMoney);
+                totalLemons = userInterface.TotalLemons(totalLemons, lemonsNeededInt);
+                double cupsNeededInt = userInterface.CupsWanted(player1);
+                totalMoney = store.PurchaseCups(cupsNeededInt, totalMoney);
+                totalCups = userInterface.TotalCups(totalCups, cupsNeededInt);
+                double iceNeededInt = userInterface.IceWanted(player1);
+                totalMoney = store.PurchaseIce(iceNeededInt, totalMoney);
+                totalIce = userInterface.TotalIce(totalIce, iceNeededInt);
+                double sugarNeededInt = userInterface.SugarWanted(player1);
+                totalMoney = store.PurchaseSugar(sugarNeededInt, totalMoney);
+                totalSugar = userInterface.TotalSugar(totalSugar, sugarNeededInt);
+                inventory.InventoryTotalStatement(totalSugar, totalCups, totalIce, totalLemons);
+                int todaysSugarPerCup = recipe.RecipeRequestSugar();
+                int todaysIcePerCup = recipe.RecipeRequestIce();
+                int todaysLemonPerCup = recipe.RecipeRequestLemons();
+                double pricePerCup = recipe.RecipeRequestPrice();
                 for (int i = 0; i < patronNumbers; i++)
                 {
-                int chanceDueToPrice = Customer.chancePurchaseByPrice(pricePerCup);
-                int chanceDueToTemp = Customer.chancePurchaseByTemperature(temperature);
-                if (Customer.lemonadePurchase(chanceDueToPrice, chanceDueToTemp))
+                int chanceDueToPrice = customer.ChancePurchaseByPrice(pricePerCup);
+                int chanceDueToTemp = customer.ChancePurchaseByTemperature(temperature);
+                if (customer.LemonadePurchase(chanceDueToPrice, chanceDueToTemp))
                     {
                         totalMoney = totalMoney + pricePerCup;
                         totalIce = totalIce-todaysIcePerCup;
@@ -55,36 +74,33 @@ namespace lemonadeStand
                         totalLemons = totalLemons - todaysLemonPerCup;
                         totalCups = totalCups - 1;
                         //Principle O of SOLID is below: The CheckEmpty method lives in the parent class of Ingredients.  The subclasses of Ice, Lemon, Sugar, and Cups are build off this parent class
-                        Ice iceCheck = new Ice();
-                        if (iceCheck.CheckEmpty(totalIce, i))
+                        if (ice.CheckEmpty(totalIce, i))
                         {
                             break;
                         }
-                        Lemon lemonCheck = new Lemon();
-                        if (lemonCheck.CheckEmpty(totalLemons, i))
+                        if (lemon.CheckEmpty(totalLemons, i))
                         {
                             break;
                         }
-                        Sugar sugarCheck = new Sugar();
-                        if (sugarCheck.CheckEmpty(totalSugar, i))
+                        if (sugar.CheckEmpty(totalSugar, i))
                         {
                             break;
                         }
-                        if (Cups.CheckEmpty(totalCups, i))
+                        if (cups.CheckEmpty(totalCups, i))
                         {
                             break;
                         }
                     }
                 }
-                totalLemons = Day.EndOfDayLemonSpoil(totalLemons);
-                totalIce = Day.EndOfDayIceMelt(totalIce);
-                Day.EndOfDayResults(totalSugar, totalCups, totalIce, totalLemons, totalMoney);
-                Day.EndOfDayNetStanding(totalMoney);
-                Day.BankruptcyCheck(totalMoney);
+                totalLemons = currentDay.EndOfDayLemonSpoil(totalLemons);
+                totalIce = currentDay.EndOfDayIceMelt(totalIce);
+                currentDay.EndOfDayResults(totalSugar, totalCups, totalIce, totalLemons, totalMoney);
+                currentDay.EndOfDayNetStanding(totalMoney);
+                currentDay.BankruptcyCheck(totalMoney);
                 dayCount++;
             }
             while (dayCount < totalPlayTime);
-            Day.EndOfPlayNetStanding(totalMoney);
+            currentDay.EndOfPlayNetStanding(totalMoney);
         }
     }
 }

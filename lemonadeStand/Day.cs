@@ -8,7 +8,7 @@ namespace lemonadeStand
 {
     class Day
     {
-        public static int patronsByDay (string weatherType)
+        public int patronsByDay (string weatherType)
         {
             if(weatherType == "sunny")
             {
@@ -39,7 +39,7 @@ namespace lemonadeStand
                 return customerNumbers;
             }
         }
-        public static void EndOfDayResults(double totalSugar, double totalCups, double totalIce, double totalLemons, double totalMoney)
+        public void EndOfDayResults(double totalSugar, double totalCups, double totalIce, double totalLemons, double totalMoney)
         {
             Console.WriteLine("Inventory totals:");
             Console.WriteLine("Sugar:" + totalSugar);
@@ -49,7 +49,7 @@ namespace lemonadeStand
             Console.WriteLine("Total Money :$" + totalMoney.ToString("0.00"));
         }
 
-        public static double EndOfDayNetStanding(double totalMoney)
+        public double EndOfDayNetStanding(double totalMoney)
         {
             if(totalMoney > 20)
             {
@@ -65,7 +65,7 @@ namespace lemonadeStand
             }
             return totalMoney;
         }
-        public static bool BankruptcyCheck(double totalMoney)
+        public bool BankruptcyCheck(double totalMoney)
         {
             if (totalMoney <= 0)
             {
@@ -78,14 +78,14 @@ namespace lemonadeStand
                 return false;
             }
         }
-        public static double EndOfDayIceMelt (double totalIce)
+        public double EndOfDayIceMelt (double totalIce)
         {
             Console.WriteLine("Your ice has melted.");
             totalIce = 0;
             return totalIce;
 
         }
-        public static double EndOfDayLemonSpoil (double totalLemons)
+        public double EndOfDayLemonSpoil (double totalLemons)
         {
             Random rnd = new Random();
             int lemonSpoil = rnd.Next(0, 100);
@@ -96,7 +96,7 @@ namespace lemonadeStand
             }
             return totalLemons;
         }
-        public static double EndOfPlayNetStanding(double totalMoney)
+        public double EndOfPlayNetStanding(double totalMoney)
         {
             if (totalMoney > 20)
             {

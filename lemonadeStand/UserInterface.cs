@@ -9,7 +9,7 @@ namespace lemonadeStand
     class UserInterface
     {
 
-        public static int LemonsWanted (string player1)
+        public int LemonsWanted (string player1)
         {
             int lemonsNeededInt;
             Console.WriteLine("Alright, " + player1 + ". How many lemons would you like to buy? Price is $.05 per lemon.");
@@ -26,13 +26,13 @@ namespace lemonadeStand
                 return lemonsNeededInt;
             }
         }
-        public static double TotalLemons (double totalLemons, double lemonsNeededInt)
+        public double TotalLemons (double totalLemons, double lemonsNeededInt)
         {
             totalLemons = totalLemons + lemonsNeededInt;
             Console.WriteLine("Your total number of lemons are " + totalLemons);
             return totalLemons;
         }
-        public static int CupsWanted(string player1)
+        public int CupsWanted(string player1)
         {
             int cupsNeededInt;
             Console.WriteLine("Alright, " + player1 + ". How many cups would you like to buy? Price is $.05 per piece.");
@@ -49,14 +49,14 @@ namespace lemonadeStand
                 return cupsNeededInt;
             }
         }
-        public static double TotalCups(double totalCups, double cupsNeededInt)
+        public double TotalCups(double totalCups, double cupsNeededInt)
         {
             totalCups = totalCups + cupsNeededInt;
             Console.WriteLine("Your total number of cups are " + totalCups);
             return totalCups;
         }
 
-        public static int IceWanted(string player1)
+        public int IceWanted(string player1)
         {
             int iceNeededInt;
             Console.WriteLine("Alright, " + player1 + ". How much ice would you like to buy? Price is $.05 per piece.");
@@ -73,13 +73,13 @@ namespace lemonadeStand
                 return iceNeededInt;
             }
         }
-        public static double TotalIce(double totalIce, double iceNeededInt)
+        public double TotalIce(double totalIce, double iceNeededInt)
         {
             totalIce = totalIce + iceNeededInt;
             Console.WriteLine("Your total number of ice is " + totalIce);
             return totalIce;
         }
-        public static int SugarWanted(string player1)
+        public int SugarWanted(string player1)
         {
             int sugarNeededInt;
             Console.WriteLine("Alright, " + player1 + ". How much sugar would you like to buy? Price is $.05 per piece.");
@@ -96,7 +96,7 @@ namespace lemonadeStand
                 return sugarNeededInt;
             }
         }
-        public static double TotalSugar(double totalSugar, double sugarNeededInt)
+        public double TotalSugar(double totalSugar, double sugarNeededInt)
         {
             totalSugar = totalSugar + sugarNeededInt;
             Console.WriteLine("Your total number of sugar is " + totalSugar);

@@ -8,7 +8,7 @@ namespace lemonadeStand
 {
     class Cups
     {
-        public static bool CheckEmpty(double totalCups, int i)
+        public bool CheckEmpty(double totalCups, int i)
         {
             if (totalCups <= 0)
             {

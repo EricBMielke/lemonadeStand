@@ -6,19 +6,29 @@ using System.Threading.Tasks;
 
 namespace lemonadeStand
 {
-    class Weather
+    class WeatherStatus
     {
         static Random rng;
-        static Weather()
+        static WeatherStatus()
         {
             rng = new Random();
         }
 
-        public static int CreateTemperature(int dayCount, int temperatureTomorrow)
+        public double RealTimeTempConvert (string foundTemp)
+        {
+            double foundTempDouble = Double.Parse(foundTemp);
+            double updatedTemp = Math.Round(((foundTempDouble - 273) * 1.8) + 32);
+            return updatedTemp;
+        }
+        public int CreateTemperature(int dayCount, int temperatureTomorrow, double updatedOnlineTemp)
         {
             int temperature;
-            if (dayCount == 0)
-           
+            if (dayCount == 0 && updatedOnlineTemp != 0)
+            {
+                int updatedOnlineTempInt = Convert.ToInt32(updatedOnlineTemp);
+                temperature = updatedOnlineTempInt;
+            }
+            else if (dayCount == 0)
             {
                 
                 temperature = rng.Next(50, 100);
@@ -30,14 +40,14 @@ namespace lemonadeStand
             Console.WriteLine("The weather today is : " + temperature);
             return temperature;
         }
-        public static int CreateForecast()
+        public int CreateForecast()
         {
             int temperatureTomorrow = rng.Next(50, 100);
             Console.WriteLine("The weather tomorrow is : " + temperatureTomorrow);
             return temperatureTomorrow;
         }
 
-        public static string CreateWeather() {
+        public string CreateWeather() {
             List<string> weatherList = new List<string>();
             weatherList.Add("sunny");
             weatherList.Add("cloudy");
