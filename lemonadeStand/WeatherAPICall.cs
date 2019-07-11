@@ -81,11 +81,9 @@ namespace lemonadeStand
             double updatedOnlineTemp = 0;
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(URL);
-
             // Add an Accept header for JSON format.
             client.DefaultRequestHeaders.Accept.Add(
             new MediaTypeWithQualityHeaderValue("application/json"));
-
             // List data response.
             HttpResponseMessage response = client.GetAsync("?q="+ city +"&APPID=f26747d8158f3b5f64a4586f6c4684b9").Result;  // Blocking call! Program will wait here until a response is received or a timeout occurs.
             if (response.IsSuccessStatusCode)

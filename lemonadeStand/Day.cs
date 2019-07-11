@@ -69,7 +69,8 @@ namespace lemonadeStand
         {
             if (totalMoney <= 0)
             {
-                Console.WriteLine("You have spent more money than you have. Your session will be terminated");
+                Console.WriteLine("Bankruptcy is no joke. Your game is officially over. Hit enter to continue");
+                Console.ReadLine();
                 Environment.Exit(0);
                 return true;
             }
