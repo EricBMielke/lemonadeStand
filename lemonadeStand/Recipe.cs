@@ -23,7 +23,7 @@ namespace lemonadeStand
                     Console.WriteLine("You cannot leave the question blank and you must enter an integer over 0");
                 }
             }
-            while (todaysSugarPerCup < 0);
+            while (todaysSugarPerCup <= 0);
             return todaysSugarPerCup;
         }
         public int RecipeRequestIce()
@@ -41,7 +41,7 @@ namespace lemonadeStand
                     Console.WriteLine("You cannot leave the question blank and you must enter an integer over 0");
                 }
             }
-            while (todaysIcePerCup < 0);
+            while (todaysIcePerCup <= 0);
             return todaysIcePerCup;
         }
         public int RecipeRequestLemons()
@@ -59,7 +59,7 @@ namespace lemonadeStand
                     Console.WriteLine("You cannot leave the question blank and you must enter an integer over 0");
                 }
             }
-            while (todaysLemonPerCup < 0);
+            while (todaysLemonPerCup <= 0);
             return todaysLemonPerCup;
         }
         public double RecipeRequestPrice()

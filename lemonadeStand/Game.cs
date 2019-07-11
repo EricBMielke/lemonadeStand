@@ -21,9 +21,10 @@ namespace lemonadeStand
 
             //Actual method
             Setup game = new Setup();
+            Player player = new Player();
             Day currentDay = new Day();
             OnlineWeather todaysWeather = new OnlineWeather();
-            string player1 = game.WelcomePlayer();
+            string player1 = player.WelcomePlayer();
             int totalPlayTime = game.GameplayDuration(totalMoney);
             string cityOfPlayer = game.PlayerLocation();
             double updatedOnlineTemp = await todaysWeather.fetchWeatherOnline(cityOfPlayer);
