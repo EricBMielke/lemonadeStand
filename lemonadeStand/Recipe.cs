@@ -10,20 +10,56 @@ namespace lemonadeStand
     {
         public int RecipeRequestSugar()
         {
-            Console.WriteLine("Lets build today's recipe: How much sugar per cup would you like?");
-            int todaysSugarPerCup = Int32.Parse(Console.ReadLine());
+            int todaysSugarPerCup = 0;
+            do
+            {
+                Console.WriteLine("Lets build today's recipe: How much sugar per cup would you like?");
+                try
+                {
+                    todaysSugarPerCup = Int32.Parse(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("You cannot leave the question blank and you must enter an integer over 0");
+                }
+            }
+            while (todaysSugarPerCup < 0);
             return todaysSugarPerCup;
         }
         public int RecipeRequestIce()
         {
-            Console.WriteLine("Lets build today's recipe: How much ice per cup would you like?");
-            int todaysIcePerCup = Int32.Parse(Console.ReadLine());
+            int todaysIcePerCup = 0;
+            do
+            {
+                Console.WriteLine("Lets build today's recipe: How much ice per cup would you like?");
+                try
+                {
+                    todaysIcePerCup = Int32.Parse(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("You cannot leave the question blank and you must enter an integer over 0");
+                }
+            }
+            while (todaysIcePerCup < 0);
             return todaysIcePerCup;
         }
         public int RecipeRequestLemons()
         {
-            Console.WriteLine("Lets build today's recipe: How many lemons per cup would you like?");
-            int todaysLemonPerCup = Int32.Parse(Console.ReadLine());
+            int todaysLemonPerCup = 0;
+            do
+            {
+                Console.WriteLine("Lets build today's recipe: How many lemons per cup would you like?");
+                try
+                {
+                    todaysLemonPerCup = Int32.Parse(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("You cannot leave the question blank and you must enter an integer over 0");
+                }
+            }
+            while (todaysLemonPerCup < 0);
             return todaysLemonPerCup;
         }
         public double RecipeRequestPrice()
@@ -39,7 +75,6 @@ namespace lemonadeStand
                 catch (Exception)
                 {
                     Console.WriteLine("You cannot leave the question blank and you must enter a decimal between .01 and 1.00");
-                    RecipeRequestPrice();
                 }
             }
             while (pricePerCup < 0 || pricePerCup > 1);
