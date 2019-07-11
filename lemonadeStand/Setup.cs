@@ -52,7 +52,20 @@ namespace lemonadeStand
             while (totalPlayTime < 7  || totalPlayTime > 30);
             return totalPlayTime;
         }
-      
-            
+        public bool AskToReplay()
+        {
+            Console.WriteLine("Would you like to retry? Yes/No");
+            string choice = Console.ReadLine();
+            if(choice == "yes"||choice == "Yes")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
     }
 }

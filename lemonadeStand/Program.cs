@@ -19,7 +19,12 @@ namespace lemonadeStand
         static async System.Threading.Tasks.Task Main(string[] args)
         {
             Game game = new Game();
-            await game.RunGame();
+            Setup setup = new Setup();
+            do
+            {
+                await game.RunGame();
+            }
+            while (!setup.AskToReplay());
         }
     }
 }
