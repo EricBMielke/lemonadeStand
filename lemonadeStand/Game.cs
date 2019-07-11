@@ -8,7 +8,7 @@ namespace lemonadeStand
 {
     class Game
     {
-        public void RunGame()
+        public async System.Threading.Tasks.Task RunGame()
         {
             //Method variables
             double totalLemons = 0;
@@ -22,12 +22,15 @@ namespace lemonadeStand
             //Actual method
             Setup game = new Setup();
             Day currentDay = new Day();
+            OnlineWeather todaysWeather = new OnlineWeather();
             string player1 = game.WelcomePlayer();
             int totalPlayTime = game.GameplayDuration(totalMoney);
+            string cityOfPlayer = game.PlayerLocation();
+            double updatedOnlineTemp = await todaysWeather.fetchWeatherOnline(cityOfPlayer);
             do
             {
                 //Principle S of SOLID is below : All functions handle one singular purpose...specifically, CreateTemperature only worries about creating the current days temperature and returning it to the user
-                Weather weather = new Weather();
+                WeatherStatus weather = new WeatherStatus();
                 Store store = new Store();
                 UserInterface userInterface = new UserInterface();
                 Inventory inventory = new Inventory();
@@ -38,7 +41,7 @@ namespace lemonadeStand
                 Cups cups = new Cups();
                 Lemon lemon = new Lemon();
 
-                int temperature = weather.CreateTemperature(dayCount, temperatureTomorrow);
+                int temperature = weather.CreateTemperature(dayCount, temperatureTomorrow, updatedOnlineTemp);
                 temperatureTomorrow = weather.CreateForecast();
                 string weatherType = weather.CreateWeather();
                 int patronNumbers = currentDay.patronsByDay(weatherType);

@@ -6,19 +6,29 @@ using System.Threading.Tasks;
 
 namespace lemonadeStand
 {
-    class Weather
+    class WeatherStatus
     {
         static Random rng;
-        static Weather()
+        static WeatherStatus()
         {
             rng = new Random();
         }
 
-        public int CreateTemperature(int dayCount, int temperatureTomorrow)
+        public double RealTimeTempConvert (string foundTemp)
+        {
+            double foundTempDouble = Double.Parse(foundTemp);
+            double updatedTemp = Math.Round(((foundTempDouble - 273) * 1.8) + 32);
+            return updatedTemp;
+        }
+        public int CreateTemperature(int dayCount, int temperatureTomorrow, double updatedOnlineTemp)
         {
             int temperature;
-            if (dayCount == 0)
-           
+            if (dayCount == 0 && updatedOnlineTemp != 0)
+            {
+                int updatedOnlineTempInt = Convert.ToInt32(updatedOnlineTemp);
+                temperature = updatedOnlineTempInt;
+            }
+            else if (dayCount == 0)
             {
                 
                 temperature = rng.Next(50, 100);

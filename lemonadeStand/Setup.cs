@@ -20,6 +20,18 @@ namespace lemonadeStand
             Console.WriteLine("Let's begin " + player1 + "!");
             return player1;
         }
+        public string PlayerLocation()
+        {
+            string playerLocation;
+            do
+            {
+                Console.WriteLine("Where is your lemonade stand going to be located?");
+                playerLocation = Console.ReadLine();
+            }
+            while (playerLocation == "");
+            Console.WriteLine("I hear that " + playerLocation + " is rad this time of year.");
+            return playerLocation;
+        }
         public int GameplayDuration(double totalMoney)
         {
             int totalPlayTime = 0;
