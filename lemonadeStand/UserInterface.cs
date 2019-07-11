@@ -12,7 +12,7 @@ namespace lemonadeStand
         public int LemonsWanted (string player1)
         {
             int lemonsNeededInt;
-            Console.WriteLine("Alright, " + player1 + ". How many lemons would you like to buy? Price is $.05 per lemon.");
+            Console.WriteLine("Alright, " + player1 + ". How many lemons would you like to buy? Price is $.02 per lemon.");
             try
             {
                 lemonsNeededInt = Int32.Parse(Console.ReadLine());
@@ -35,7 +35,7 @@ namespace lemonadeStand
         public int CupsWanted(string player1)
         {
             int cupsNeededInt;
-            Console.WriteLine("Alright, " + player1 + ". How many cups would you like to buy? Price is $.05 per piece.");
+            Console.WriteLine("Alright, " + player1 + ". How many cups would you like to buy? Price is $.02 per piece.");
             try
             {
                 cupsNeededInt = Int32.Parse(Console.ReadLine());
@@ -59,7 +59,7 @@ namespace lemonadeStand
         public int IceWanted(string player1)
         {
             int iceNeededInt;
-            Console.WriteLine("Alright, " + player1 + ". How much ice would you like to buy? Price is $.05 per piece.");
+            Console.WriteLine("Alright, " + player1 + ". How much ice would you like to buy? Price is $.02 per piece.");
             try
             {
                 iceNeededInt = Int32.Parse(Console.ReadLine());
@@ -82,7 +82,7 @@ namespace lemonadeStand
         public int SugarWanted(string player1)
         {
             int sugarNeededInt;
-            Console.WriteLine("Alright, " + player1 + ". How much sugar would you like to buy? Price is $.05 per piece.");
+            Console.WriteLine("Alright, " + player1 + ". How much sugar would you like to buy? Price is $.02 per piece.");
             try
             {
                 sugarNeededInt = Int32.Parse(Console.ReadLine());

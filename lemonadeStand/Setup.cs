@@ -46,7 +46,6 @@ namespace lemonadeStand
                 catch (Exception)
                 {
                     Console.WriteLine("You cannot leave the question blank and you must enter an integer");
-                    GameplayDuration(totalMoney);
                 }
             }
             while (totalPlayTime < 7  || totalPlayTime > 30);

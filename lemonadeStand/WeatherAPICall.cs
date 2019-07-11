@@ -97,7 +97,7 @@ namespace lemonadeStand
             }
             else
             {
-                Console.WriteLine("{0} ({1})", (int)response.StatusCode, response.ReasonPhrase);
+                Console.WriteLine("We were unable to connect your city with our online database, but we have generated a temperature for you.");
                 updatedOnlineTemp = 0;
                 return updatedOnlineTemp;
             }

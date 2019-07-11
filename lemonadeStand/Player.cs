@@ -8,5 +8,6 @@ namespace lemonadeStand
 {
     class Player
     {
+        public string name;
     }
 }

@@ -88,7 +88,7 @@ namespace lemonadeStand
         }
         public int StateDay(int dayCount)
         {
-            Console.WriteLine("It is the end of day " + dayCount);
+            Console.WriteLine("It is the end of day " + (dayCount + 1));
             return dayCount;
 
         }
