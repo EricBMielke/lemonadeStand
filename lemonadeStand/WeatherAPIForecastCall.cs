@@ -83,10 +83,26 @@ namespace lemonadeStand
             {
                 string responseBody = await response.Content.ReadAsStringAsync();
                 dynamic parsedBody = JsonConvert.DeserializeObject(responseBody);
-                string realTimeForecast = parsedBody.list[dayCount].main.temp;
+                string realTimeForecast="0";
+                try
+                {
+                    realTimeForecast = parsedBody.list[dayCount * 8].main.temp;
+                }
+                catch (Exception)
+                {
+                    realTimeForecast = "0";
+                }
                 WeatherStatus onlineForecast = new WeatherStatus();
-                updatedOnlineForecast = onlineForecast.RealTimeTempConvert(realTimeForecast);
-                return updatedOnlineForecast;
+                if (realTimeForecast != "0")
+                {
+                    updatedOnlineForecast = onlineForecast.RealTimeTempConvert(realTimeForecast);
+                    return updatedOnlineForecast;
+                }
+                else
+                {
+                    updatedOnlineForecast = 0;
+                    return updatedOnlineForecast;
+                }
             }
             else
             {

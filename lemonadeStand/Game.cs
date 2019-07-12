@@ -29,8 +29,6 @@ namespace lemonadeStand
             string player1 = player.WelcomePlayer();
             int totalPlayTime = game.GameplayDuration(totalMoney);
             string cityOfPlayer = game.PlayerLocation();
-            double updatedOnlineTemp = await todaysWeather.fetchWeatherOnline(cityOfPlayer);
-            double updatedOnlineForecast = await todaysForecast.fetchForecastOnline(cityOfPlayer, dayCount);
             do
             {
                 //Principle S of SOLID is below : All functions handle one singular purpose...specifically, CreateTemperature only worries about creating the current days temperature and returning it to the user
@@ -45,6 +43,8 @@ namespace lemonadeStand
                 Cups cups = new Cups();
                 Lemon lemon = new Lemon();
 
+                double updatedOnlineTemp = await todaysWeather.fetchWeatherOnline(cityOfPlayer);
+                double updatedOnlineForecast = await todaysForecast.fetchForecastOnline(cityOfPlayer, dayCount);
                 int temperature = weather.CreateTemperature(dayCount, temperatureTomorrow, updatedOnlineTemp);
                 temperatureTomorrow = weather.CreateForecast(temperatureTomorrow, updatedOnlineForecast);
                 string weatherType = weather.CreateWeather();

@@ -42,7 +42,7 @@ namespace lemonadeStand
         }
         public int CreateForecast(int temperatureTomorrow, double updatedOnlineForecast)
         {
-            if (temperatureTomorrow == 0)
+            if (updatedOnlineForecast != 0)
             {
                 temperatureTomorrow = Convert.ToInt32 (updatedOnlineForecast);
                 Console.WriteLine("The weather tomorrow is : " + temperatureTomorrow);
