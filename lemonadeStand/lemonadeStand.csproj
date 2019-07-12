@@ -65,6 +65,7 @@
     <Compile Include="Sugar.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="UserInterface.cs" />
+    <Compile Include="WeatherAPIForecastCall.cs" />
     <Compile Include="WeatherStatus.cs" />
     <Compile Include="WeatherAPICAll.cs" />
   </ItemGroup>
