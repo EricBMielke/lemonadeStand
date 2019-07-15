@@ -77,7 +77,7 @@ namespace lemonadeStand
                     Console.WriteLine("You cannot leave the question blank and you must enter a decimal between .01 and 1.00");
                 }
             }
-            while (pricePerCup < 0 || pricePerCup > 1);
+            while (pricePerCup <= 0 || pricePerCup > 1);
             return pricePerCup;
         }
     }
