@@ -49,6 +49,14 @@ namespace lemonadeStand
             Console.WriteLine("Total Money :$" + totalMoney.ToString("0.00"));
         }
 
+        public double LiquidationSummation(double totalSugar, double totalCups, double totalLemons, double totalMoney)
+        {
+            totalMoney = totalSugar * .04 + totalMoney;
+            totalMoney = totalLemons * .04 + totalMoney;
+            totalMoney = totalCups * .04 + totalMoney;
+            Console.WriteLine("Total Liquidation Value :$" + totalMoney.ToString("0.00"));
+            return totalMoney;
+        }
         public double EndOfDayNetStanding(double totalMoney)
         {
             if(totalMoney > 20)

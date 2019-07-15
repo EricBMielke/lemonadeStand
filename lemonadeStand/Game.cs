@@ -106,6 +106,7 @@ namespace lemonadeStand
                 dayCount++;
             }
             while (dayCount < totalPlayTime);
+            totalMoney = currentDay.LiquidationSummation(totalSugar, totalCups, totalLemons, totalMoney);
             currentDay.EndOfPlayNetStanding(totalMoney);
         }
     }
