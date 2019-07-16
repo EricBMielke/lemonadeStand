@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lemonadeStand
 {
-    class Day
+    public class Day
     {
         public int patronsByDay (string weatherType)
         {
@@ -51,9 +51,9 @@ namespace lemonadeStand
 
         public double LiquidationSummation(double totalSugar, double totalCups, double totalLemons, double totalMoney)
         {
-            totalMoney = totalSugar * .04 + totalMoney;
-            totalMoney = totalLemons * .04 + totalMoney;
-            totalMoney = totalCups * .04 + totalMoney;
+            totalMoney = totalSugar * .02 + totalMoney;
+            totalMoney = totalLemons * .02 + totalMoney;
+            totalMoney = totalCups * .02 + totalMoney;
             Console.WriteLine("Total Liquidation Value :$" + totalMoney.ToString("0.00"));
             return totalMoney;
         }

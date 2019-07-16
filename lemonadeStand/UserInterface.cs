@@ -8,7 +8,7 @@ namespace lemonadeStand
 {
     class UserInterface
     {
-
+        
         public int LemonsWanted (string player1)
         {
             int lemonsNeededInt;
