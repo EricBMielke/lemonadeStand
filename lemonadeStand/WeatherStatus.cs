@@ -40,11 +40,19 @@ namespace lemonadeStand
             Console.WriteLine("The weather today is : " + temperature);
             return temperature;
         }
-        public int CreateForecast()
+        public int CreateForecast(int temperatureTomorrow, double updatedOnlineForecast)
         {
-            int temperatureTomorrow = rng.Next(50, 100);
-            Console.WriteLine("The weather tomorrow is : " + temperatureTomorrow);
-            return temperatureTomorrow;
+            if (updatedOnlineForecast != 0)
+            {
+                temperatureTomorrow = Convert.ToInt32 (updatedOnlineForecast);
+                Console.WriteLine("The weather tomorrow is : " + temperatureTomorrow);
+                return temperatureTomorrow;
+            }
+            else
+            {
+                Console.WriteLine("The weather tomorrow is : " + temperatureTomorrow);
+                return temperatureTomorrow;
+            }
         }
 
         public string CreateWeather() {
